@@ -1,0 +1,19 @@
+{
+    "name": "EduPage Tools",
+    "version": "1.0",
+    "description": "Rewritten in Angularrrrr",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.edupage.org/znamky/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "index.html"
+    }
+}
