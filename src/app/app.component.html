@@ -5,7 +5,8 @@
   <div class="subject-grades">
     <div class="subject-grade" *ngFor="let grade of subject.grades">
       <div *ngIf="grade.type == 'points'">
-        <input [(ngModel)]="grade.reached" (change)="onInput()">/
+        <input [(ngModel)]="grade.reached" (change)="onInput()">
+        /
         <input [(ngModel)]="grade.total" (change)="onInput()">
       </div>
       <div *ngIf="grade.type == 'grade'">
