@@ -5,12 +5,16 @@
   <div class="subject-grades">
     <div class="subject-grade" *ngFor="let grade of subject.grades">
       <div *ngIf="grade.type == 'points'">
-        <input [(ngModel)]="grade.reached">/
-        <input [(ngModel)]="grade.total">
+        <input [(ngModel)]="grade.reached" (change)="onInput()">/
+        <input [(ngModel)]="grade.total" (change)="onInput()">
       </div>
       <div *ngIf="grade.type == 'grade'">
-        <input [(ngModel)]="grade.grade">
+        <input [(ngModel)]="grade.grade" (change)="onInput()">
       </div>
+    </div>
+    <div class="subject-grade subject-average">
+      <span *ngIf="subject.grades.type === 'points'">{{subject.grades.average}}%</span>
+      <span *ngIf="subject.grades.type === 'grade'">{{subject.grades.average}}</span>
     </div>
   </div>
 </div>
