@@ -1,27 +1,28 @@
-# EdupageCalc
+# EduPage Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+This project is under heavy development. Be careful.
 
-## Development server
+## Building and adding the extension to Chrome
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Reqs
+- Node.js 10.16.3
+- Angular CLI installed globally (`npm i @angular/cli -g`)
 
-## Code scaffolding
+### The process
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone repo
+2. Run `npm i`
+3. Run `ng build`
+4. Go to `chrome://extensions`
+5. Enable "Developer Mode"
+6. Click on "Load Unpacked"
+7. Select the `/dist/edupage-calc/` folder
 
-## Build
+### Development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. After you built and added the extension as per above steps, developing is quite simple
+2. In the project folder, run `ng build --watch` - this will build the extension automatically when you change anything
+3. For client (popup) code changes only a close-open is required to see the changes
+4. For content script changes, you need to hit the refresh button for this extension in the extensions page and refresh the page you are using for testing
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Good luck, have fun!
