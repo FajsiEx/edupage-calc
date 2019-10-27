@@ -12,10 +12,16 @@
         /
         <input [(ngModel)]="grade.total" (change)="onInput()">
       </div>
+
       <div *ngIf="grade.type == 'grade'">
         <input [(ngModel)]="grade.grade" (change)="onInput()">
+        <span class="grade-weight" *ngIf="grade.weight != 1">
+          x
+          <input [(ngModel)]="grade.weight" (change)="onInput()">
+        </span>
       </div>
     </div>
+
     <div class="subject-grade subject-average">
       <span *ngIf="subject.grades.type === 'points'">{{subject.grades.average}}%</span>
       <span *ngIf="subject.grades.type === 'grade'">{{subject.grades.average}}</span>

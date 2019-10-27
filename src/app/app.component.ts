@@ -43,8 +43,8 @@ export class AppComponent {
           sum += parseFloat(grade.reached);
           total += parseFloat(grade.total);
         } else if (gradesType === 'grade') {
-          sum += parseFloat(grade.grade);
-          total++;
+          sum += parseFloat(grade.grade) * parseFloat(grade.weight);
+          total+= parseFloat(grade.weight);
         }
       }
 
