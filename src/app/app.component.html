@@ -8,7 +8,7 @@
 
     <div class="subject-grades">
         <div class="grade-wrapper" *ngFor="let grade of subject.grades">
-            <div class="subject-grade" [attr.title]="grade.title" [class.artif]="grade.artif" [ngClass]="
+            <div class="subject-grade" [attr.title]="grade.title" (contextmenu)="deleteGrade(subject.grades, grade)" [class.artif]="grade.artif" [ngClass]="
                 {
                     one: ((grade.type == 'grade') && (grade.grade < 1.5)) || ((grade.type == 'points') && (grade.reached / grade.total >= 0.88)),
                     two: ((grade.type == 'grade') && (grade.grade < 2.5)) || ((grade.type == 'points') && (grade.reached / grade.total >= 0.75)),

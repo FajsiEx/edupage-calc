@@ -59,6 +59,12 @@ export class AppComponent {
     }
   }
 
+  deleteGrade(grades, grade) {
+    grades.splice(grades.indexOf(grade), 1);
+    this.calculateAvgs();
+    return false;
+  }
+
   calculateAvgs() {
     for (let subject of this.subjects) {
       let sum = 0;
