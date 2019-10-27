@@ -22,7 +22,15 @@
       </div>
     </div>
 
-    <div class="subject-grade subject-average">
+    <div class="subject-grade subject-average" [ngClass]="
+      {
+        one: ((subject.grades.type == 'grade') && (subject.grades.average < 1.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 88)),
+        two: ((subject.grades.type == 'grade') && (subject.grades.average < 2.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 75)),
+        thr: ((subject.grades.type == 'grade') && (subject.grades.average < 3.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 60)),
+        fou: ((subject.grades.type == 'grade') && (subject.grades.average < 4.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 45)),
+        fiv: true
+      }
+    ">
       <span *ngIf="subject.grades.type === 'points'">{{subject.grades.average}}%</span>
       <span *ngIf="subject.grades.type === 'grade'">{{subject.grades.average}}</span>
     </div>

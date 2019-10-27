@@ -34,14 +34,30 @@
             background: rgba(0, 0, 0, 0.2);
 
             &.subject-average {
-                background: #08f;
+                background: #000;
                 width: 48px;
 
                 font-weight: bold;
-                
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                &.fiv {
+                    background: rgba(255, 0, 0, .2);
+                }
+                &.fou {
+                    background: rgba(255, 128, 0, .2);
+                }
+                &.thr {
+                    background: rgba(255, 255, 0, .2);
+                }
+                &.two {
+                    background: rgba(0, 128, 255, .2);
+                }
+                &.one {
+                    background: rgba(64, 255, 0, .2);
+                }
             }
 
             .grade-weight input {

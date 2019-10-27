@@ -1,4 +1,8 @@
-﻿let gradesData = [];
+﻿/*
+    Script that contains all the scraping logic
+*/
+
+let gradesData = [];
 
 onload = () => {
     console.log("[ECALC] Loaded.");
@@ -59,7 +63,7 @@ function scrapeGradeData() {
             for (const gradeElement of gradeElements) {
                 let grade = gradeElement.innerHTML;
 
-                if (grade.includes("/")) {
+                if (grade.includes(" / ")) {
                     const reached = parseFloat(grade.split("/")[0]);
                     const total = parseFloat(grade.split("/")[1]);
 
@@ -72,10 +76,14 @@ function scrapeGradeData() {
                         weight: rowWeight
                     });
                 } else {
+                    if (grade.includes("/")) {
+                        grade = grade.split("/")[0] + ".5";
+                    }
+
                     subjectBuffer.grades.push({
                         gradeId,
                         type: "grade",
-                        grade: parseInt(grade),
+                        grade: parseFloat(grade),
                         weight: rowWeight
                     });
                 }
