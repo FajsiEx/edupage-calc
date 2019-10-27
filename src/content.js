@@ -72,8 +72,12 @@ function scrapeGradeData() {
                         type: "points",
                         reached,
                         total,
-                        perc: reached / total * 100,
-                        weight: rowWeight
+                        weight: rowWeight,
+                        og: {
+                            reached,
+                            total,
+                            weight: rowWeight,
+                        }
                     });
                 } else {
                     if (grade.includes("/")) {
@@ -84,7 +88,11 @@ function scrapeGradeData() {
                         gradeId,
                         type: "grade",
                         grade: parseFloat(grade),
-                        weight: rowWeight
+                        weight: rowWeight,
+                        og: {
+                            grade: parseFloat(grade),
+                            weight: rowWeight
+                        }
                     });
                 }
 
