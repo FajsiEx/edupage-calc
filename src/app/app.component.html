@@ -15,8 +15,8 @@
 
       <div *ngIf="grade.type == 'grade'">
         <input [(ngModel)]="grade.grade" (change)="onInput()">
-        <span class="grade-weight" *ngIf="grade.weight != 1">
-          x
+        <br>
+        <span class="grade-weight">
           <input [(ngModel)]="grade.weight" (change)="onInput()">
         </span>
       </div>
