@@ -62,6 +62,7 @@ export class AppComponent {
   }
 
   deleteGrade(grades, grade) {
+    if (!grade.artif) {return false;}
     grades.splice(grades.indexOf(grade), 1);
     this.calculateAvgs();
     return false;
