@@ -70,6 +70,10 @@
                 color: #fff;
                 width: 32px;
                 text-align: center;
+
+                &.changed {
+                    color: #08f
+                }
             }
         }
     }
