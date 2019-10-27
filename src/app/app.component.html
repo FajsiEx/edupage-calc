@@ -8,13 +8,13 @@
 
   <div class="subject-grades">
     <div class="subject-grade" *ngFor="let grade of subject.grades">
-      <div *ngIf="grade.type == 'points'">
+      <div *ngIf="grade.type == 'points'" [attr.title]="grade.title">
         <input class="bold" [(ngModel)]="grade.reached" [class.changed]="grade.reached != grade.og.reached" (change)="onInput()">
         /
         <input class="bold" [(ngModel)]="grade.total" [class.changed]="grade.total != grade.og.total" (change)="onInput()">
       </div>
 
-      <div *ngIf="grade.type == 'grade'">
+      <div *ngIf="grade.type == 'grade'" [attr.title]="grade.title">
         <input class="bold" [(ngModel)]="grade.grade" [class.changed]="grade.grade != grade.og.grade" (change)="onInput()">
         <br>
         <span class="grade-weight">

@@ -47,9 +47,11 @@ function scrapeGradeData() {
                 grades: []
             };
         } else if (row.classList.contains("udalostRow")) {
-            const gradeElements = row.querySelectorAll(".znZnamka");
+            const gradeElements = [].slice.call(row.querySelectorAll(".znZnamka")).reverse(); //  .reverse() since it will be reversed later again
 
             const rowNoteBElement = row.querySelector("td:nth-child(1) div b");
+
+            const rowTitle = row.querySelector("td:nth-child(1)").textContent.split(":")[0];
 
             let rowWeight = 1;
 
@@ -74,6 +76,7 @@ function scrapeGradeData() {
                         reached,
                         total,
                         weight: rowWeight,
+                        title: rowTitle,
                         og: {
                             reached,
                             total,
@@ -90,6 +93,7 @@ function scrapeGradeData() {
                         type: "grade",
                         grade: parseFloat(grade),
                         weight: rowWeight,
+                        title: rowTitle,
                         og: {
                             grade: parseFloat(grade),
                             weight: rowWeight
