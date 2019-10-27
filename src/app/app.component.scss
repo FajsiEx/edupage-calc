@@ -32,10 +32,37 @@
             margin: 0 4px;
             border-radius: 4px;
             background: rgba(0, 0, 0, 0.2);
+            border: 2px solid #08f;
+
+            &.fiv {
+                border-color: rgb(255, 0, 0);
+            }
+            &.fou {
+                border-color: rgb(255, 128, 0);
+            }
+            &.thr {
+                border-color: rgb(255, 255, 0);
+            }
+            &.two {
+                border-color: rgb(0, 128, 255);
+            }
+            &.one {
+                border-color: rgb(64, 255, 0);
+            }
+
+            &.artif {
+                color: #08f;
+                border-style: dashed;
+
+                input {
+                    color: #08f;
+                }
+            }
 
             &.subject-add-grade {
                 display: flex;
                 align-items: center;
+                border: none
             }
 
             &.subject-average {
@@ -45,6 +72,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                border: none;
 
                 &.fiv {
                     background: rgba(255, 0, 0, .2);

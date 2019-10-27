@@ -38,6 +38,7 @@ export class AppComponent {
         reached: 0,
         total: 0,
         weight: 1,
+        artif: true,
         og: {
           reached: 0,
           total: 0,
@@ -49,6 +50,7 @@ export class AppComponent {
         type: 'grade',
         grade: 1,
         weight: 1,
+        artif: true,
         og: {
           grade: 1,
           weight: 1
