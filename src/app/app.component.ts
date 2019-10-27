@@ -57,6 +57,8 @@ export class AppComponent {
         }
       });
     }
+
+    this.calculateAvgs();
   }
 
   deleteGrade(grades, grade) {
