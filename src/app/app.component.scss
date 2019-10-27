@@ -33,11 +33,14 @@
             border-radius: 4px;
             background: rgba(0, 0, 0, 0.2);
 
+            &.subject-add-grade {
+                display: flex;
+                align-items: center;
+            }
+
             &.subject-average {
                 background: #000;
                 width: 48px;
-
-                font-weight: bold;
 
                 display: flex;
                 align-items: center;
@@ -61,7 +64,7 @@
             }
 
             .grade-weight input {
-                color: #888;
+                filter: brightness(.75);
             }
 
             input {

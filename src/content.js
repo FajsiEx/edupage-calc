@@ -30,6 +30,7 @@ function scrapeGradeData() {
             // Flush the previous buffer if there is anything
             if (Object.keys(subjectBuffer).length > 0) {
                 if (subjectBuffer.grades.length > 0) {
+                    subjectBuffer.grades.reverse();
                     gradesData.push(subjectBuffer);
                     subjectBuffer = {};
                 }

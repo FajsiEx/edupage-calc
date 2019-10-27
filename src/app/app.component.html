@@ -5,16 +5,17 @@
 
 <div class="subject" *ngFor="let subject of subjects">
   <div class="subject-name">{{subject.name}}</div>
+
   <div class="subject-grades">
     <div class="subject-grade" *ngFor="let grade of subject.grades">
       <div *ngIf="grade.type == 'points'">
-        <input [(ngModel)]="grade.reached" [class.changed]="grade.reached != grade.og.reached" (change)="onInput()">
+        <input class="bold" [(ngModel)]="grade.reached" [class.changed]="grade.reached != grade.og.reached" (change)="onInput()">
         /
-        <input [(ngModel)]="grade.total" [class.changed]="grade.total != grade.og.total" (change)="onInput()">
+        <input class="bold" [(ngModel)]="grade.total" [class.changed]="grade.total != grade.og.total" (change)="onInput()">
       </div>
 
       <div *ngIf="grade.type == 'grade'">
-        <input [(ngModel)]="grade.grade" [class.changed]="grade.grade != grade.og.grade" (change)="onInput()">
+        <input class="bold" [(ngModel)]="grade.grade" [class.changed]="grade.grade != grade.og.grade" (change)="onInput()">
         <br>
         <span class="grade-weight">
           <input [(ngModel)]="grade.weight" [class.changed]="grade.weight != grade.og.weight" (change)="onInput()">
@@ -22,7 +23,9 @@
       </div>
     </div>
 
-    <div class="subject-grade subject-average" [ngClass]="
+    <div class="subject-grade subject-add-grade" (click)="addGrade(subject.grades)"><i class="fas fa-plus"></i></div>
+
+    <div class="subject-grade subject-average bold" [ngClass]="
       {
         one: ((subject.grades.type == 'grade') && (subject.grades.average < 1.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 88)),
         two: ((subject.grades.type == 'grade') && (subject.grades.average < 2.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 75)),

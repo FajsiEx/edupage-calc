@@ -15,13 +15,13 @@ export class AppComponent {
   }
 
   async ngOnInit() {
-    let tabs = await new Promise(resolve => chrome.tabs.query({ active: true, currentWindow: true }, (data)=>resolve(data)));
-    let response:any = await new Promise(resolve => chrome.tabs.sendMessage(tabs[0].id, { data: 'fetch' }, (response)=>resolve(response)));
+    let tabs = await new Promise(resolve => chrome.tabs.query({ active: true, currentWindow: true }, (data) => resolve(data)));
+    let response: any = await new Promise(resolve => chrome.tabs.sendMessage(tabs[0].id, { data: 'fetch' }, (response) => resolve(response)));
     this.subjects = response.data;
     this.calculateAvgs();
     console.log(this.subjects);
 
-    setInterval(()=>{
+    setInterval(() => {
       console.log(this.subjects);
     }, 5000);
   }
@@ -29,6 +29,32 @@ export class AppComponent {
   onInput() {
     console.log("There we go");
     this.calculateAvgs();
+  }
+
+  addGrade(grades) {
+    if (grades.type === 'points') {
+      grades.push({
+        type: "points",
+        reached: 0,
+        total: 0,
+        weight: 1,
+        og: {
+          reached: 0,
+          total: 0,
+          weight: 1
+        }
+      });
+    } else if (grades.type === 'grade') {
+      grades.push({
+        type: 'grade',
+        grade: 1,
+        weight: 1,
+        og: {
+          grade: 1,
+          weight: 1
+        }
+      });
+    }
   }
 
   calculateAvgs() {
@@ -44,7 +70,7 @@ export class AppComponent {
           total += parseFloat(grade.total);
         } else if (gradesType === 'grade') {
           sum += parseFloat(grade.grade) * parseFloat(grade.weight);
-          total+= parseFloat(grade.weight);
+          total += parseFloat(grade.weight);
         }
       }
 
