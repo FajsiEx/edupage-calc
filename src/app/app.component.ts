@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   onInput() {
-    console.log("There we go");
     this.calculateAvgs();
   }
 
