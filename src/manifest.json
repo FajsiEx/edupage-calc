@@ -12,7 +12,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.edupage.org/znamky/*"
+                "*://*.edupage.org/*"
             ],
             "js": [
                 "content.js"
