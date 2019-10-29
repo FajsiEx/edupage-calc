@@ -15,8 +15,13 @@ chrome.runtime.onMessage.addListener(
                 sendResponse({ data: false });
                 return;
             }
-            scrapeGradeData();
-            sendResponse({ data: gradesData });
+            try {
+                scrapeGradeData();
+                sendResponse({ data: gradesData });
+            }catch(e){
+                sendResponse({ data: false });
+                return;
+            }
         }
     }
 );
