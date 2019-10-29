@@ -25,7 +25,7 @@
     .subject-grades {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
 
         .subject-grade {
             padding: 8px;
