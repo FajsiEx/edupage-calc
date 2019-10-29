@@ -11,6 +11,10 @@ onload = () => {
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.data == "fetch") {
+            if (!location.href.includes("/znamky")) {
+                sendResponse({ data: false });
+                return;
+            }
             scrapeGradeData();
             sendResponse({ data: gradesData });
         }

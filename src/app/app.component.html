@@ -3,12 +3,18 @@
     <p>Doing what EduPage can't since 2019</p>
 </div>
 
-<div class="subject" *ngFor="let subject of subjects">
-    <div class="subject-name">{{subject.name}}</div>
+<div *ngIf="failed">
+    Make sure you are on the right page with grades.
+</div>
 
-    <div class="subject-grades">
-        <div class="grade-wrapper" *ngFor="let grade of subject.grades">
-            <div class="subject-grade" [attr.title]="grade.title" (contextmenu)="deleteGrade(subject.grades, grade)" [class.artif]="grade.artif" [ngClass]="
+<div *ngIf="!failed">
+    <div class="subject" *ngFor="let subject of subjects">
+        <div class="subject-name">{{subject.name}}</div>
+
+        <div class="subject-grades">
+            <div class="grade-wrapper" *ngFor="let grade of subject.grades">
+                <div class="subject-grade" [attr.title]="grade.title" (contextmenu)="deleteGrade(subject.grades, grade)"
+                    [class.artif]="grade.artif" [ngClass]="
                 {
                     one: ((grade.type == 'grade') && (grade.grade < 1.5)) || ((grade.type == 'points') && (grade.reached / grade.total >= 0.88)),
                     two: ((grade.type == 'grade') && (grade.grade < 2.5)) || ((grade.type == 'points') && (grade.reached / grade.total >= 0.75)),
@@ -18,31 +24,31 @@
                 }
             ">
 
-                <div *ngIf="grade.type == 'points'">
-                    <input class="bold" [(ngModel)]="grade.reached" [class.changed]="grade.reached != grade.og.reached"
-                        (change)="onInput()">
-                    /
-                    <input class="bold" [(ngModel)]="grade.total" [class.changed]="grade.total != grade.og.total"
-                        (change)="onInput()">
+                    <div *ngIf="grade.type == 'points'">
+                        <input class="bold" [(ngModel)]="grade.reached"
+                            [class.changed]="grade.reached != grade.og.reached" (change)="onInput()">
+                        /
+                        <input class="bold" [(ngModel)]="grade.total" [class.changed]="grade.total != grade.og.total"
+                            (change)="onInput()">
+                    </div>
+
+                    <div *ngIf="grade.type == 'grade'">
+                        <input class="bold" [(ngModel)]="grade.grade" [class.changed]="grade.grade != grade.og.grade"
+                            (change)="onInput()">
+                        <br>
+                        <span class="grade-weight">
+                            <input [(ngModel)]="grade.weight" [class.changed]="grade.weight != grade.og.weight"
+                                (change)="onInput()">
+                        </span>
+                    </div>
                 </div>
 
-                <div *ngIf="grade.type == 'grade'">
-                    <input class="bold" [(ngModel)]="grade.grade" [class.changed]="grade.grade != grade.og.grade"
-                        (change)="onInput()">
-                    <br>
-                    <span class="grade-weight">
-                        <input [(ngModel)]="grade.weight" [class.changed]="grade.weight != grade.og.weight"
-                            (change)="onInput()">
-                    </span>
-                </div>
             </div>
 
-        </div>
+            <div class="subject-grade subject-add-grade" (click)="addGrade(subject.grades)"><i class="fas fa-plus"></i>
+            </div>
 
-        <div class="subject-grade subject-add-grade" (click)="addGrade(subject.grades)"><i class="fas fa-plus"></i>
-        </div>
-
-        <div class="subject-grade subject-average bold" [ngClass]="
+            <div class="subject-grade subject-average bold" [ngClass]="
             {
                 one: ((subject.grades.type == 'grade') && (subject.grades.average < 1.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 88)),
                 two: ((subject.grades.type == 'grade') && (subject.grades.average < 2.5)) || ((subject.grades.type == 'points') && (subject.grades.average >= 75)),
@@ -51,8 +57,9 @@
                 fiv: true
             }
         ">
-            <span *ngIf="subject.grades.type === 'points'">{{subject.grades.average}}%</span>
-            <span *ngIf="subject.grades.type === 'grade'">{{subject.grades.average}}</span>
+                <span *ngIf="subject.grades.type === 'points'">{{subject.grades.average}}%</span>
+                <span *ngIf="subject.grades.type === 'grade'">{{subject.grades.average}}</span>
+            </div>
         </div>
     </div>
 </div>
