@@ -13,6 +13,8 @@ export class AppComponent {
   subjects = [];
   failed = false;
 
+  selectedSubject: any;
+
   constructor(public edupage: EdupageService) {
   }
 

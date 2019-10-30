@@ -1,0 +1,56 @@
+.content-overlay {
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+
+    background: #000;
+    padding: 8px;
+}
+
+
+.subject-grades {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .subject-grade {
+        padding: 8px;
+        margin: 0 4px;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 2px solid #08f;
+
+        &.fiv {
+            border-color: rgb(255, 0, 0);
+        }
+        &.fou {
+            border-color: rgb(255, 128, 0);
+        }
+        &.thr {
+            border-color: rgb(255, 255, 0);
+        }
+        &.two {
+            border-color: rgb(0, 128, 255);
+        }
+        &.one {
+            border-color: rgb(64, 255, 0);
+        }
+
+        .grade-weight input {
+            filter: brightness(.75);
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            width: 32px;
+            text-align: center;
+
+            &.changed {
+                color: #08f
+            }
+        }
+    }
+}
