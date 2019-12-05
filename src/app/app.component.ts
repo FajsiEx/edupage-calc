@@ -20,6 +20,8 @@ export class AppComponent {
 
   async ngOnInit() {
     this.subjects = await this.edupage.getGrades();
+    console.log("SUBJECTS", this.subjects);
+    
     if (!this.subjects) { // CS returns false data if you're not on the right page
       this.failed = true;
       return;

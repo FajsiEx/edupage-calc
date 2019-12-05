@@ -20,6 +20,8 @@ export class EdupageService {
       )
     );
 
+    if (!response) { return false; }
+
     return response.data;
   }
 }

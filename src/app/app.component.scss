@@ -20,16 +20,32 @@
         font-weight: bold;
         display: flex;
         align-items: center;
+        width: 25%;
+        min-width: 25%;
     }
 
     .subject-grades {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+
+        .grades-real-wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: end;
+        }
+
+        .grades-utility-wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
 
         .subject-grade {
             padding: 8px;
-            margin: 0 4px;
+            margin: 4px 4px;
             border-radius: 4px;
             background: rgba(0, 0, 0, 0.2);
             border: 2px solid #08f;
@@ -37,15 +53,19 @@
             &.fiv {
                 border-color: rgb(255, 0, 0);
             }
+
             &.fou {
                 border-color: rgb(255, 128, 0);
             }
+
             &.thr {
                 border-color: rgb(255, 255, 0);
             }
+
             &.two {
                 border-color: rgb(0, 128, 255);
             }
+
             &.one {
                 border-color: rgb(64, 255, 0);
             }
@@ -78,15 +98,19 @@
                 &.fiv {
                     background: rgba(255, 0, 0, .2);
                 }
+
                 &.fou {
                     background: rgba(255, 128, 0, .2);
                 }
+
                 &.thr {
                     background: rgba(255, 255, 0, .2);
                 }
+
                 &.two {
                     background: rgba(0, 128, 255, .2);
                 }
+
                 &.one {
                     background: rgba(64, 255, 0, .2);
                 }
@@ -110,6 +134,28 @@
         }
     }
 }
+
 .footnote {
     text-align: center;
+}
+
+.watermark {
+    position: fixed;
+    bottom: 4px;
+    left: 4px;
+
+    opacity: .5;
+    transition: opacity .5s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.error {
+    margin: 15% 0;
+    text-align: center;
+    h1 {
+        color: #f33;
+    }
 }
