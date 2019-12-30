@@ -74,8 +74,26 @@ function scrapeGradeData() {
 
             for (const gradeElement of gradeElements) {
                 let grade = gradeElement.innerHTML;
+                let finalGrade = gradeElement.querySelector(".znamkaVyhodnotenie"); // When there is smth like 3.25 / 5 -> (3)
 
-                if (grade.includes(" / ")) {
+
+                if (finalGrade) {
+                    if (grade.includes("/")) {
+                        grade = grade.split("/")[0] + ".5";
+                    }
+
+                    subjectBuffer.grades.push({
+                        gradeId,
+                        type: "grade",
+                        grade: parseFloat(finalGrade.innerHTML),
+                        weight: rowWeight,
+                        title: rowTitle,
+                        og: {
+                            grade: parseFloat(finalGrade.innerHTML),
+                            weight: rowWeight
+                        }
+                    });
+                } else if (grade.includes(" / ")) {
                     const reached = parseFloat(grade.split("/")[0]);
                     const total = parseFloat(grade.split("/")[1]);
 
