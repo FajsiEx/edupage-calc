@@ -28,18 +28,20 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        justify-content: flex-end;
 
         .grades-real-wrap {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: end;
+            justify-content: flex-end;
         }
 
         .grades-utility-wrap {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
+            justify-content: flex-end;
         }
 
 
